@@ -1,0 +1,16 @@
+{% extends 'appsapp/base.html' %}
+{% block title %}About - Application Management System{% endblock %}
+{% block aboutlink %}{% endblock %}{# Don't show About link in About page #}
+{% block content %}
+    <h1>About This System</h1>
+    <p>This is a minimalistic webapp created with <a href="https://www.djangoproject.com/">django</a> in order
+    to practice and showcase my skills.
+    As admin, I can add my job applications to the system, including relevant documents like CV, cover letter,
+        transcript of records etc.
+    Recruiters and managers from different companies can see all the details and documents of the applications to their
+    company, and they can also change the status of the applications or the "next step" field.
+    Recruiters can also see that applications to other companies exist and what their status is, but they cannot see the
+    position or the company, or the documents of those applications.
+    </p>
+
+{% endblock %}

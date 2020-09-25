@@ -1,0 +1,34 @@
+{% extends 'appsapp/base.html' %}
+{% block title %}{{ jobapplication.company_name }} - {{ jobapplication.position }}{% endblock %}
+{% block css_header %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'appsapp/details_style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h3>{{ jobapplication.company_name }}</h3>
+    <h1>{{ jobapplication.position }}</h1>
+    <table>
+        <tr>
+            <td>Start Date:</td><td>{{ jobapplication.process_start_date }}</td>
+        </tr>
+        <tr>
+            <td>Status:</td><td>{{ jobapplication.get_status_display }}</td>
+        </tr>
+        <tr>
+            <td>Last Changed</td><td>{{ jobapplication.last_changed }}</td>
+        </tr>
+        <tr>
+            <td>Next Step:</td><td>{{ jobapplication.next_step }}</td>
+        </tr>
+    </table>
+
+    <div class="grid-container">
+        {% for f in files %}
+            <div class="grid-item">
+                <a href="{% url 'appsapp:download' f.slug %}">{{ f.file_name }}</a> {# TODO: show file type, and icon #}
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'appsapp:update' jobapplication.id %}" class="button">Edit</a>
+{% endblock %}

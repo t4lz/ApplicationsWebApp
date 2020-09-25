@@ -1,0 +1,29 @@
+{% extends 'appsapp/base.html' %}
+{% block title %}Update Job Application{% endblock %}
+{% block css_header %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'appsapp/details_style.css' %}">
+{% endblock %}
+{% block content %}
+    <div id="top">
+        <span>Update Application Details</span>
+        <a href="{% url 'appsapp:details' jobapplication.id %}" >Cancel</a>
+    </div>
+    <h3>{{ jobapplication.company_name }}</h3>
+    <h1>{{ jobapplication.position }}</h1>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        {% if documents %}
+            <div class="grid-container">
+                {% for f in documents %}
+                    <div class="grid-item">
+                        <a href="{% url 'appsapp:download' f.slug %}">{{ f.file_name }}</a> {# TODO: show file type, and icon #}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No documents attached.</p>
+        {% endif %}
+        <input class="button" type="submit" value="Update">
+    </form>
+{% endblock %}

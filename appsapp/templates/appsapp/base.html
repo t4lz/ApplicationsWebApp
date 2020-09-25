@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Application Management System{% endblock %}</title>
+    {% block css_header %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'appsapp/style.css' %}">
+    {% endblock %}
+</head>
+<body>
+<div class='parent grid-parent'>
+    <div id="sidebar">
+        <ul class="sidebar-nav">
+            {% if user.is_authenticated %}
+                <li><span>{{ user.get_username }}</span></li>
+                {% block homelink %}<li><a href="{% url 'appsapp:index' %}">Overview</a></li>{% endblock %}
+                {% block aboutlink %}<li><a href="{% url 'appsapp:about' %}">About</a></li>{% endblock %}
+                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

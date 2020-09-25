@@ -1,0 +1,8 @@
+{% extends 'appsapp/base.html' %}
+{% block title %}Job Applications Overview{% endblock %}
+{% block homelink %}{% endblock %} {# don't show link to same page #}
+{% block content %}
+    {%  include "appsapp/applications_list.html" with title="Ongoing Applications" applications_list=ongoing_applications %}
+    <br>
+    {%  include "appsapp/applications_list.html" with title="Completed Applications" applications_list=completed_applications %}
+{% endblock %}

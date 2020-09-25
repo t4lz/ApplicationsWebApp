@@ -1,0 +1,135 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+#sidebar {
+    float: left;
+}
+h1 {
+    font-weight: 200;
+    font-size: 32px;
+    color: #212121;
+}
+
+h2 {
+    font-weight: 200;
+    font-size: 26px;
+    color: #212121;
+}
+
+h3 {
+    font-weight: 200;
+    font-size: 22px;
+    color: #212121;
+}
+
+span {
+    font-weight: 200;
+    font-size: 14px;
+    color: #212121;
+}
+
+a {
+    font-weight: 200;
+    font-size: 14px;
+    color: #212121;
+}
+
+#top a{
+    padding-left: 64px;
+}
+
+.sidebar-nav {
+    height: 100%;
+    width: 10%;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+    display: block;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    float: left;
+}
+
+.sidebar-nav li span{
+    padding: 18px 8px 18px 16px;
+    font-size: 14px;
+    font-weight: 200;
+    display: block;
+    text-align: left;
+}
+
+.sidebar-nav a {
+    padding: 18px 8px 18px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 200;
+    color: #212121;
+    display: block;
+    text-align: left;
+}
+
+.sidebar-nav a:hover {
+    color: #FFFFFF;
+    background: #009688;
+}
+
+.grid-parent {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.button {
+    width: 256px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    background-color: #FF9800;
+    padding: 12px 15px;
+    margin-top: 12px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #00796B;
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: 350;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+td{
+    padding: 12px 15px;
+    min-width: 128px;
+    text-align: left;
+    font-weight: 300;
+    font-size: 16px;
+    color: #000;
+}
+
+.grid-container {
+    padding: 16px 16px 16px 16px;
+  display: grid;
+  grid-gap: 50px 100px;
+}
+
+input.button {
+    border: none;
+    outline: none;
+}
+
+#top {
+    display: inline-block;
+}

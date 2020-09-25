@@ -1,0 +1,43 @@
+<h2>{{ title }}</h2>
+{% if applications_list %}
+    <table>
+        <tr class="table-header">
+            <th>Company</th>
+            <th>Position</th>
+            <th>Application Sent</th>
+            <th>Status</th>
+            <th>Last Changed</th>
+        </tr>
+        {% for appl in applications_list %}
+                <tr>
+
+                    <td>
+                        {% if user.groups.all.0.name == appl.company_name or user.is_staff %}
+                            {{ appl.company_name }}
+                        {% else %}
+                            ****
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if user.groups.all.0.name == appl.company_name or user.is_staff %}
+                            {{ appl.position }}
+                        {% else %}
+                            ****
+                        {% endif %}
+                    </td>
+                    <td>{{ appl.process_start_date }}</td>
+                    <td>{{ appl.get_status_display }}</td>
+                    <td>{{ appl.last_changed }}</td>
+                    {% if user.groups.all.0.name == appl.company_name or user.is_staff %}
+                        <td><a href="{% url 'appsapp:details' appl.id %}" class="button">View</a></td>
+                        <td><a href="{% url 'appsapp:update' appl.id %}" class="button">Edit</a></td>
+                        {% else %}
+                        <td></td>
+                        <td></td>
+                    {% endif %}
+                </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No applications to show here.</p>
+{% endif %}
